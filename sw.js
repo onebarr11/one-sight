@@ -1,8 +1,8 @@
-/* Ojol Ops service worker. Naikkan V setiap rilis agar cache lama dibuang. */
-const V='6.1.0',SHELL='ojol-shell-'+V,RUN='ojol-fonts-v1';
-const ASSETS=['./','./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png','./icon-maskable-512.png'];
+/* OneSight service worker. Naikkan V setiap rilis agar cache lama dibuang. */
+const V='1.0.0',SHELL='onesight-shell-'+V,RUN='ojol-fonts-v1';
+const ASSETS=['./','./index.html','./manifest.webmanifest','./logo.svg','./icon-192.png','./icon-512.png','./icon-maskable-512.png'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(SHELL).then(c=>c.addAll(ASSETS)));}); /* tidak skipWaiting otomatis: menunggu persetujuan pengguna */
-self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k.startsWith('ojol-shell-')&&k!==SHELL).map(k=>caches.delete(k)))));});
+self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>(k.startsWith('ojol-shell-')||k.startsWith('onesight-shell-'))&&k!==SHELL).map(k=>caches.delete(k)))));});
 self.addEventListener('message',e=>{const d=e.data||{};if(d.type==='SKIP_WAITING')self.skipWaiting();if(d.type==='GET_VERSION'&&e.source)e.source.postMessage({type:'VERSION',version:V});});
 const timeout=(p,ms)=>Promise.race([p,new Promise((_,rej)=>setTimeout(()=>rej(new Error('timeout')),ms))]);
 self.addEventListener('fetch',e=>{const r=e.request,u=new URL(r.url);if(r.method!=='GET')return;

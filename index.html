@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#071426">
-<meta name="app-version" content="6.1.0">
+<meta name="app-version" content="7.0.0">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" type="image/png" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Ojol Ops">
-<title>Ojol Ops Dashboard</title>
+<meta name="apple-mobile-web-app-title" content="OneSight">
+<title>OneSight | Master Your Routes</title>
 <script>(function(){var t;try{t=localStorage.getItem("ojol_theme");}catch(e){}if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";document.documentElement.dataset.theme=t;var m=document.querySelector('meta[name=theme-color]');if(m)m.content=t==="light"?"#F4F8FF":"#071426";})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -517,7 +517,7 @@ html.theme-switching *,html.theme-switching *::before,html.theme-switching *::af
 /* Aktivitas terbaru */
 .act-list{display:flex;flex-direction:column}
 .act-row{display:flex;align-items:center;gap:12px;width:100%;min-height:56px;padding:8px 4px;border:0;border-bottom:1px solid var(--border);background:transparent;color:inherit;text-align:left;border-radius:10px;font:inherit}
-.act-row:last-child{border-bottom:0}.act-row:hover{background:var(--surface-2)}.act-row:focus-visible{outline:3px solid var(--accent);outline-offset:-2px}
+.act-row:last-child{border-bottom:0}
 .act-ic{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;flex:none}.act-ic svg{width:20px;height:20px}
 .act-ic[data-k=shift]{background:var(--info-soft);color:var(--info-text)}.act-ic[data-k=order]{background:var(--ok-soft);color:var(--ok-text)}.act-ic[data-k=exp]{background:var(--bad-soft);color:var(--bad-text)}.act-ic[data-k=skip]{background:var(--surface-2);color:var(--muted)}
 .act-tx{flex:1;min-width:0}.act-tx b{display:block;font-size:.875rem;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.act-tx small{display:block;font-size:.75rem;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -540,6 +540,13 @@ html.theme-switching *,html.theme-switching *::before,html.theme-switching *::af
 @media print{.sidebar,.app-header,.nav,#toast,.updbar,.noprint,.drawer-bg,#calcPeek,.chip,.fgrid,.btn{display:none!important}
  html,body{background:#fff!important;color:#000!important}.shell,main{margin:0!important;padding:0!important;max-width:none!important}.print-only{display:block}
  .card{background:#fff!important;border:1px solid #bbb!important;box-shadow:none!important;break-inside:avoid;column-span:all}*{color:#000!important}#p2>div:last-child{display:block!important;column-count:1!important}}
+
+/* ===== V7 ===== */
+.brand .logo,.sb-brand .logo{background:transparent!important;overflow:hidden;padding:0}.logo img{width:100%;height:100%;display:block;border-radius:inherit}
+.help{background:var(--surface-2);border-radius:12px;padding:10px 12px;font-size:.8125rem;margin-bottom:var(--space-3)}.help p+p{margin-top:6px}
+.ord-f{display:grid;grid-template-columns:repeat(auto-fit,minmax(7.5rem,1fr));gap:8px 12px;margin-top:6px}.ord-f small{display:block;font-size:.6875rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}.ord-f b{display:block;font-size:.875rem;overflow-wrap:anywhere}
+.dayp{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}.dayp .chip{min-width:3.4rem}
+details.help-card summary{min-height:44px;display:flex;align-items:center;cursor:pointer;font-weight:700}details.help-card p{font-size:.875rem;margin-top:8px}
 </style>
 </head>
 <body>
@@ -565,11 +572,11 @@ html.theme-switching *,html.theme-switching *::before,html.theme-switching *::af
 <header class="app-header">
   <div class="hd-in">
     <div class="brand">
-      <span class="logo" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg></span>
+      <span class="logo" aria-hidden="true"><img src="logo.svg" alt="" width="40" height="40"></span>
       <div>
-        <h1>Ojol Ops</h1>
-        <nav class="crumb" aria-label="Lokasi halaman"><span class="crumb-root">Ojol Ops</span><span class="crumb-sep" aria-hidden="true">›</span><b id="hdPage" aria-current="page">Beranda</b></nav>
-        <p class="brand-sub"><span class="hd-date" id="hdDate"></span><span class="hd-shift" id="hdShift" role="status"><span class="hs-txt" id="hdShiftTx"></span></span><span id="net" data-state="on">…</span></p>
+        <h1>OneSight</h1>
+        <nav class="crumb" aria-label="Lokasi halaman"><span class="crumb-root">OneSight</span><span class="crumb-sep" aria-hidden="true">›</span><b id="hdPage" aria-current="page">Beranda</b></nav>
+        <p class="brand-sub"><span class="hd-date" id="hdDate"></span><span class="hd-shift" id="hdShift" role="status"><span class="hs-txt" id="hdShiftTx"></span></span></p>
       </div>
     </div>
     <div class="hd-act">
@@ -583,7 +590,7 @@ html.theme-switching *,html.theme-switching *::before,html.theme-switching *::af
 
 <div class="drawer-bg" id="drawerBg" aria-hidden="true"></div>
 <aside class="sidebar" id="sidebar" aria-label="Navigasi aplikasi">
-  <div class="sb-brand"><span class="logo" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg></span><div><b>Ojol Ops</b><small>Dashboard operasional</small></div><button type="button" class="sb-x" id="sbClose" aria-label="Tutup menu"><svg class="i"><use href="#i-x"/></svg></button></div>
+  <div class="sb-brand"><span class="logo" aria-hidden="true"><img src="logo.svg" alt="" width="40" height="40"></span><div><b>OneSight</b><small>Master Your Routes</small></div><button type="button" class="sb-x" id="sbClose" aria-label="Tutup menu"><svg class="i"><use href="#i-x"/></svg></button></div>
   <nav class="sb-menu" aria-label="Menu utama">
     <p class="sb-label first">Menu utama</p>
     <div class="sb-nav">
@@ -605,6 +612,7 @@ html.theme-switching *,html.theme-switching *::before,html.theme-switching *::af
       <button type="button" data-sub="auto"><svg class="i"><use href="#i-clock"/></svg>Pengingat dan PWA</button>
       <button type="button" data-sub="exp"><svg class="i"><use href="#i-wallet"/></svg>Biaya</button>
       <button type="button" data-sub="veh"><svg class="i"><use href="#i-bike"/></svg>Kendaraan</button>
+      <button type="button" data-sub="plat"><svg class="i"><use href="#i-list"/></svg>Aplikator</button>
     </div>
     <p class="sb-label">Sistem</p>
     <div class="sb-nav">
@@ -634,7 +642,6 @@ html.theme-switching *,html.theme-switching *::before,html.theme-switching *::af
       <div class="card">
         <h2>Evaluasi order terakhir</h2>
         <div id="homeLast" class="text-mute">Belum ada evaluasi. Hitung order di menu Kalkulator.</div>
-        <button class="btn solid w-full mt-4" type="button" data-goto="calc">Buka kalkulator order</button>
       </div>
       <div class="radar-zone stack" id="radarMain"></div>
     </div>
@@ -656,6 +663,7 @@ html.theme-switching *,html.theme-switching *::before,html.theme-switching *::af
     <div class="col">
       <div class="card">
         <h2>1. Informasi tarif</h2>
+        <div class="help"><p><b>Tarif dasar</b>: harga order sebelum ada tambahan pengali.</p><p><b>Surge</b>: pengali harga saat order ramai. 1.5x berarti harga 1,5 kali lipat, 1.0x berarti tidak ada surge.</p><p><b>Tarif final</b>: harga akhir yang tampil di aplikasi, yaitu tarif dasar × surge.</p></div>
         <div class="field">
           <label for="fare">Tarif order (Rp)</label>
           <input id="fare" class="fld num" inputmode="numeric" placeholder="0" autocomplete="off">
@@ -669,12 +677,12 @@ html.theme-switching *,html.theme-switching *::before,html.theme-switching *::af
         <div class="field">
           <p class="lbl">Tarif yang Anda masukkan adalah</p>
           <div class="seg">
-            <button class="chip" type="button" data-mode="base" aria-pressed="true">Tarif dasar<small>dikalikan surge</small></button>
-            <button class="chip" type="button" data-mode="final" aria-pressed="false">Tarif final<small>sudah surge</small></button>
+            <button class="chip" type="button" data-mode="base" aria-pressed="true">Tarif dasar<small>belum termasuk surge</small></button>
+            <button class="chip" type="button" data-mode="final" aria-pressed="false">Tarif final<small>sudah termasuk surge</small></button>
           </div>
         </div>
         <div class="field" id="surgeBox">
-          <p class="lbl">Surge multiplier</p>
+          <p class="lbl">Surge (pengali harga saat ramai)</p>
           <div class="flex gap-2 flex-wrap" data-presets="surge">
             <button class="chip" type="button" data-v="1" aria-pressed="true">1.0x</button>
             <button class="chip" type="button" data-v="1.3">1.3x</button>
@@ -682,6 +690,7 @@ html.theme-switching *,html.theme-switching *::before,html.theme-switching *::af
           </div>
           <input id="surge" class="fld num mt-2" inputmode="decimal" value="1" aria-label="Surge multiplier">
           <p class="err" id="e-surge"></p>
+          <p class="text-sm mt-2" id="finalFare" aria-live="polite"></p>
         </div>
       </div>
 
@@ -717,8 +726,7 @@ html.theme-switching *,html.theme-switching *::before,html.theme-switching *::af
           <div><label for="fee">Potongan aplikator (%)</label><input id="fee" class="fld num" inputmode="decimal"><p class="err" id="e-fee"></p></div>
           <div><label for="kmpl">Konsumsi BBM (km/L)</label><input id="kmpl" class="fld num" inputmode="decimal"><p class="err" id="e-kmpl"></p></div>
           <div><label for="fuel">Harga BBM (Rp/L)</label><input id="fuel" class="fld num" inputmode="numeric"><p class="err" id="e-fuel"></p></div>
-          <div><label for="dep">Penyusutan (Rp/km)</label><input id="dep" class="fld num" inputmode="decimal"><p class="err" id="e-dep"></p></div>
-        </div>
+                  </div>
         <p class="text-xs text-mute mt-3">Nilai awal hanyalah contoh. Ganti sesuai motor dan aplikator Anda. Perubahan tersimpan di perangkat ini.</p>
       </details>
     </div>
@@ -744,6 +752,10 @@ html.theme-switching *,html.theme-switching *::before,html.theme-switching *::af
 <!-- TAB 3: HOTSPOT -->
 <section data-tab="zones" class="hidden">
   <div class="page-head"><h2 class="page-title">Lokasi dan jadwal</h2><p class="page-sub">Kelola hotspot, zona merah, dan jam yang perlu dihindari.</p></div>
+  <details class="card help-card"><summary>Apa itu hotspot, zona merah, dan jam hindari?</summary>
+    <p><b>Hotspot</b>: lokasi tempat Anda biasa mendapat order ramai, misalnya kampus, mall, atau stasiun. Rekomendasi hanya dari catatan dan umpan balik Anda sendiri.</p>
+    <p><b>Zona merah</b>: area yang ingin Anda hindari karena rawan atau merugikan. Hotspot di zona merah tidak akan direkomendasikan.</p>
+    <p><b>Jam hindari</b>: hari dan jam tertentu di suatu area yang sebaiknya dilewati, misalnya macet parah atau sepi order.</p></details>
   <div id="hot"></div>
 </section>
 
@@ -756,22 +768,6 @@ html.theme-switching *,html.theme-switching *::before,html.theme-switching *::af
       <h2>Tampilan</h2>
       <div class="flex items-center justify-between gap-3"><span>Tema warna</span><button id="themeSet" class="chip" type="button">Terang</button></div>
     </div>
-    <div class="card">
-      <h2>Batas keputusan order</h2>
-      <div class="field">
-        <label for="minProfit">Profit bersih minimum per order (Rp)</label>
-        <input id="minProfit" class="fld num" inputmode="numeric"><p class="err" id="e-minProfit"></p>
-      </div>
-      <div class="field">
-        <label for="minPPK">Profit minimum per km (Rp)</label>
-        <input id="minPPK" class="fld num" inputmode="numeric"><p class="err" id="e-minPPK"></p>
-      </div>
-      <div class="field">
-        <label for="minPPH">Profit minimum per jam (Rp)</label>
-        <input id="minPPH" class="fld num" inputmode="numeric"><p class="err" id="e-minPPH"></p>
-      </div>
-    </div>
-
     <div class="card">
       <h2>Voice cue</h2>
       <div class="flex items-center justify-between gap-3">
@@ -908,7 +904,7 @@ if(typeof module!=='undefined')module.exports=FinanceEngine;
 const $ = id => document.getElementById(id);
 const $$ = s => Array.from(document.querySelectorAll(s));
 const KEY = 'ojol_phase1_settings';
-const DEFAULTS = {fee:20,kmpl:40,fuel:10000,dep:250,minProfit:3000,minPPK:1500,minPPH:15000,voiceOn:false,lang:'id-ID'};
+const DEFAULTS = {fee:20,kmpl:40,fuel:10000,dep:0,minProfit:3000,minPPK:1500,minPPH:15000,voiceOn:false,lang:'id-ID'};
 const MAX = 1e9;
 
 /* ---------- Format ---------- */
@@ -920,6 +916,7 @@ let S = {...DEFAULTS};
 function loadSettings(){
   try{const r=localStorage.getItem(KEY); if(r){const o=JSON.parse(r); if(o&&typeof o==='object') S={...DEFAULTS,...o};}}
   catch(e){S={...DEFAULTS};}
+  S.dep=0;
 }
 function saveSettings(){
   try{localStorage.setItem(KEY,JSON.stringify(S));if(window.OJOL_onSave)window.OJOL_onSave({...S});return true;}
@@ -974,7 +971,7 @@ function evaluate(){
     dur:{gt:true,label:'Isi durasi lebih dari 0'},
     fee:{max:99.9,maxMsg:'Maksimal di bawah 100%'},
     kmpl:{gt:true,label:'Harus lebih dari 0'},
-    fuel:{},dep:{}
+    fuel:{}
   };
   const v={}; let ok=true, anyInput=false;
   for(const id of Object.keys(spec)){
@@ -997,19 +994,20 @@ function evaluate(){
   if(ok && (v.pickup||0)+(v.dest||0)<=0){setErr('dest','Jarak total harus lebih dari 0');ok=false;}
   if(!ok) return null;
 
-  const c=FinanceEngine.calculateOrder({fare:v.fare,surge,feeRate:v.fee,distance:v.pickup+v.dest,kmpl:v.kmpl,fuel:v.fuel,dep:v.dep,durMin:v.dur});
+  const c=FinanceEngine.calculateOrder({fare:v.fare,surge,feeRate:v.fee,distance:v.pickup+v.dest,kmpl:v.kmpl,fuel:v.fuel,dep:0,durMin:v.dur});
   return {...c,surge,fee:v.fee};
 }
 
 function decide(r){
   const reasons=[]; let status;
-  const lowK=r.ppk<S.minPPK, lowH=r.pph<S.minPPH, lowP=r.net<S.minProfit;
+  const L=(window.OJOL_limits&&window.OJOL_limits())||{},mP=L.minProfit>0?L.minProfit:S.minProfit,mK=L.minPPK>0?L.minPPK:S.minPPK,mH=L.minPPH>0?L.minPPH:S.minPPH;
+  const lowK=r.ppk<mK, lowH=r.pph<mH, lowP=r.net<mP;
   if(r.net<=0){status='SKIP';reasons.push('Profit bersih nol atau negatif setelah potongan dan biaya.');}
-  else if(lowP){status='SKIP';reasons.push('Profit '+idr(r.net)+' di bawah batas minimum '+idr(S.minProfit)+' per order.');}
+  else if(lowP){status='SKIP';reasons.push('Profit '+idr(r.net)+' di bawah patokan '+idr(mP)+' per order.');}
   else if(lowK||lowH){
     status='PERTIMBANGKAN';
-    if(lowK) reasons.push('Profit per km '+idr(r.ppk)+' di bawah target '+idr(S.minPPK)+'.');
-    if(lowH) reasons.push('Profit per jam '+idr(r.pph)+' di bawah target '+idr(S.minPPH)+'.');
+    if(lowK) reasons.push('Profit per km '+idr(r.ppk)+' di bawah target '+idr(mK)+'.');
+    if(lowH) reasons.push('Profit per jam '+idr(r.pph)+' di bawah target '+idr(mH)+'.');
   } else {status='AMBIL';reasons.push('Profit, profit per km, dan profit per jam memenuhi target Anda.');}
   return {status,reasons};
 }
@@ -1024,6 +1022,7 @@ function row(label,value,strong){
 }
 
 function render(){
+  {const f=read('fare'),s=read('surge'),o=$('finalFare');if(o)o.textContent=(mode==='base'&&f.v>0&&s.v>=1)?'Tarif final: '+idr(Math.round(f.v*s.v)):'';}
   const box=$('result'); box.replaceChildren();
   const r=evaluate();
   if(!r){
@@ -1053,7 +1052,6 @@ function render(){
   rows.append(
     row('Pendapatan setelah potongan '+r.fee+'%',idr(r.netFare)),
     row('Estimasi BBM',idr(r.fuelCost)),
-    row('Penyusutan',idr(r.depCost)),
     row('Total biaya operasional',idr(r.opCost)),
     row('Jarak total',nf.format(Math.round(r.dTotal*10)/10)+' km')
   );
@@ -1133,15 +1131,10 @@ $$('[data-mode]').forEach(b=>b.addEventListener('click',()=>{
 
 /* ---------- Input wiring ---------- */
 ['fare','surge','pickup','dest','dur'].forEach(id=>$(id).addEventListener('input',()=>{syncPresets();render();}));
-['fee','kmpl','fuel','dep'].forEach(id=>$(id).addEventListener('input',()=>{
+['fee','kmpl','fuel'].forEach(id=>$(id).addEventListener('input',()=>{
   const r=read(id); if(r.v!==undefined){S[id]=r.v;saveSettings();}
   render();
 }));
-['minProfit','minPPK','minPPH'].forEach(id=>$(id).addEventListener('input',()=>{
-  const r=read(id); setErr(id,r.error||'');
-  if(r.v!==undefined){S[id]=r.v;saveSettings();render();}
-}));
-
 /* ---------- Safety mode ---------- */
 function setSafe(on){document.body.dataset.safe=on?'1':'';$$('[data-tab="calc"],[data-tab="zones"],[data-tab="settings"]').forEach(x=>{x.inert=on;x.classList.toggle('locked',on);});if(window.OJOL_safe)window.OJOL_safe();}
 $('safeBtn').addEventListener('click',()=>{
@@ -1159,12 +1152,12 @@ $('resetBtn').addEventListener('click',()=>{
 });
 
 /* ---------- Status online ---------- */
-function net(){const n=$('net');n.textContent=navigator.onLine?'Online':'Offline';n.dataset.state=navigator.onLine?'on':'off';}
+function net(){const n=$('net');if(!n)return;n.textContent=navigator.onLine?'Online':'Offline';n.dataset.state=navigator.onLine?'on':'off';}
 addEventListener('online',net);addEventListener('offline',net);
 
 /* ---------- Init ---------- */
 function fillFields(){
-  ['fee','kmpl','fuel','dep','minProfit','minPPK','minPPH'].forEach(id=>$(id).value=S[id]);
+  ['fee','kmpl','fuel'].forEach(id=>$(id).value=S[id]);
 }
 try{if(localStorage.getItem('ojol_safe')==='1'){$('safeBtn').setAttribute('aria-pressed','true');$('safeBanner').classList.remove('hidden');setSafe(true);}}catch(e){}
 loadSettings(); fillFields(); updateVoiceUI(); net(); syncPresets(); render();
@@ -1252,7 +1245,7 @@ function exportDatabase(){download('ojol-backup-'+today()+'.json',JSON.stringify
 async function importDatabase(file){
   if(!file)return;if(file.size>MAXFILE){toast('File terlalu besar (maksimal 2 MB)');return;}
   let obj;try{obj=JSON.parse(await file.text());}catch(e){toast('File bukan JSON yang valid');return;}
-  let n;try{if(!obj||obj.app!=='ojol-ops-dashboard'||!obj.db)throw new Error('ini bukan file backup Ojol Ops');n=migrateDatabase(obj.db);const e=validateDatabase(n);if(e)throw new Error(e);}
+  let n;try{if(!obj||obj.app!=='ojol-ops-dashboard'||!obj.db)throw new Error('ini bukan file backup OneSight');n=migrateDatabase(obj.db);const e=validateDatabase(n);if(e)throw new Error(e);}
   catch(e){toast('Backup ditolak: '+e.message);return;}
   const when=obj.exportedAt?new Date(obj.exportedAt).toLocaleString('id-ID',{timeZone:tz()}):'tanggal tidak diketahui';
   if(!confirm('Pulihkan backup ('+when+')?\n'+n.shifts.length+' shift, '+n.orders.length+' order.\nData saat ini akan diganti. Salinannya disimpan dulu.'))return;
@@ -1294,6 +1287,10 @@ function form(fields,label,onSub,extra){
   if(fields.some(d=>d.g||d.c))f.classList.add('fgrid');
   fields.forEach(d=>{if(d.g)f.append(el('h3','form-g',d.g));const w=el('div',d.c||''),lb=el('label','text-sm text-mute',d.l);lb.htmlFor='f_'+d.k+'_'+fu;w.append(lb);let i;
     if(d.t==='select'){i=el('select','fld mt-1');d.o.forEach(([v,l])=>{const o=el('option',null,l);o.value=v;i.append(o);});}
+    else if(d.t==='days'){i=el('input');i.type='hidden';const DD=[['sen','Sen'],['sel','Sel'],['rab','Rab'],['kam','Kam'],['jum','Jum'],['sab','Sab'],['min','Min']],gp=el('div','dayp'),on=new Set((d.v||'').split(',').filter(Boolean));
+      gp.setAttribute('role','group');gp.setAttribute('aria-label',d.l);i.value=[...on].join(',');
+      DD.forEach(([k,l])=>{const b=el('button','chip',l);b.type='button';b.setAttribute('aria-pressed',String(on.has(k)));b.onclick=()=>{on.has(k)?on.delete(k):on.add(k);b.setAttribute('aria-pressed',String(on.has(k)));i.value=DD.map(x=>x[0]).filter(x=>on.has(x)).join(',');};gp.append(b);});
+      lb.removeAttribute('for');w.append(gp);}
     else{i=el('input','fld num mt-1');i.type=d.t==='date'?'date':d.t==='time'?'time':'text';if(d.t==='int')i.inputMode='numeric';if(d.t==='dec')i.inputMode='decimal';}
     i.id='f_'+d.k+'_'+fu;if(d.v!==undefined&&d.v!=='')i.value=d.v;ins[d.k]=i;w.append(i);f.append(w);});
   const er=el('p','err'),b=el('button','btn solid w-full',label);b.type='submit';if(extra&&extra.node)f.append(extra.node);f.append(er,b);
@@ -1339,8 +1336,8 @@ function paneRep(box){
   else{kids.push(rw('Pendapatan kotor',idr(a.gross)),rw('Potongan aplikator ('+(a.nLegacy+a.nIncomplete?(a.nWeighted?'campuran aktual dan estimasi':'estimasi legacy'):'aktual, tertimbang')+')',idr(a.fee)),rw('BBM (estimasi dari jarak)',idr(a.fuel)),rw('Servis aktual',idr(a.maint)),rw('Biaya lain',idr(a.other)),
     rw('Profit bersih',idr(a.net),true,a.net>=0?'var(--ok-text)':'var(--bad-text)'),rw('Jarak',nf1.format(a.km)+' km'),rw('Jam kerja',nf1.format(a.hours)+' jam'),
     rw('Profit per km',a.km>0?idr(a.net/a.km):'-',true),rw('Profit per jam',a.hours>0?idr(a.net/a.hours):'-',true),rw('Rata-rata profit per order',a.orders>0?idr(a.net/a.orders):'-'),
-    rw('Penyusutan (estimasi, tidak dikurangkan)',idr(a.dep)),rw('Profit setelah penyusutan (estimasi)',idr(a.netAfterDep)),rw('Efisiensi BBM (asumsi pengaturan)',nf1.format(db.settings.kmpl)+' km/L'));}
-  box.append(card('Ringkasan profit',[...kids,note('Potongan shift dengan rincian platform dihitung tertimbang (aktual); shift tanpa rincian memakai rata-rata sederhana (estimasi legacy). BBM selalu estimasi dari jarak odometer dan km/L. Penyusutan hanya informasi agar tidak terhitung dua kali dengan servis.')]));
+    rw('Efisiensi BBM (asumsi pengaturan)',nf1.format(db.settings.kmpl)+' km/L'));}
+  box.append(card('Ringkasan profit',[...kids,note('Potongan shift dengan rincian platform dihitung tertimbang (aktual); shift tanpa rincian memakai rata-rata sederhana (estimasi legacy). BBM selalu estimasi dari jarak odometer dan km/L.')]));
   cmpCards(box,a,f,t);
   /* Daily goal */
   const td=analyze(today(),today()),pct=tg>0?Math.max(0,Math.min(100,td.net/tg*100)):0,short=Math.max(0,tg-td.net);
@@ -1396,35 +1393,28 @@ function platRows(init){
   ab.onclick=()=>add();box.append(ab,sum);(init&&init.length?init:[null]).forEach(add);
   return{node:box,get};}
 function shiftForm(e){
-  const x=platRows(e&&e.platformBreakdown),isB=!e||!!(e.platformBreakdown&&e.platformBreakdown.length);
-  const fr=form([
+  return form([
     {k:'date',l:'Tanggal',t:'date',v:e?e.date:today(),g:'Waktu',c:'c2'},{k:'start',l:'Waktu mulai',t:'time',v:e?e.start:'',c:'c2'},{k:'end',l:'Waktu selesai',t:'time',v:e?e.end:fmtT(new Date()),c:'c2'},
-    {k:'odoStart',l:'Odometer awal (km)',t:'int',v:e?e.odoStart:db.vehicle.odometer,g:'Odometer',c:'c3'},{k:'odoEnd',l:'Odometer akhir (km)',t:'int',v:e?e.odoEnd:'',c:'c3'},
-    {k:'mode',l:'Mode pencatatan pendapatan',t:'select',o:[['breakdown','Rincian per platform (akurat)'],['legacy','Total manual/legacy (potongan estimasi)']],v:isB?'breakdown':'legacy',g:'Pendapatan dan biaya'},
-    {k:'gross',l:'Total pendapatan kotor manual (Rp)',t:'int',req:false,v:e&&!isB?e.gross:'',c:'c2'},{k:'nonFuel',l:'Biaya non-BBM (Rp)',t:'int',req:false,v:e?e.nonFuel:'',c:'c2'},
-    {k:'orders',l:'Jumlah order selesai',t:'int',v:e?e.orders:'',c:'c2'},{k:'note',l:'Catatan',t:'text',req:false,v:e?e.note:''}],
-    e?'Simpan perubahan shift':'Simpan shift',(v,get)=>{
+    {k:'odoStart',l:'Odometer awal (km)',t:'int',v:e?e.odoStart:db.vehicle.odometer,g:'Odometer',c:'c2'},{k:'odoEnd',l:'Odometer akhir (km)',t:'int',v:e?e.odoEnd:'',c:'c2'},
+    {k:'gross',l:'Total pendapatan kotor (Rp)',t:'int',v:e?e.gross:'',g:'Pendapatan',c:'c2'},{k:'orders',l:'Jumlah order selesai',t:'int',v:e?e.orders:'',c:'c2'},
+    {k:'note',l:'Catatan (opsional)',t:'text',req:false,v:e?e.note:''}],
+    'Simpan',v=>{
     if(v.odoEnd<v.odoStart)return 'Odometer akhir tidak boleh lebih kecil dari odometer awal';
     if(v.start===v.end)return 'Waktu mulai dan selesai tidak boleh sama';
+    if(!(v.gross>0))return 'Isi total pendapatan kotor';
     if(!Number.isInteger(v.orders))return 'Jumlah order harus bilangan bulat';
-    let rv,nid='';
-    if(v.mode==='breakdown'){const r=get(),p=FinanceEngine.platformFees(r.rows);
-      if(!r.rows.length||r.bad||p.warn.length)return 'Rincian platform belum lengkap: '+(p.warn[0]||'isi pendapatan setiap baris atau hapus baris kosong');
-      if(v.gross>0&&v.gross!==p.gross)return 'Total manual ('+idr(v.gross)+') berbeda dari jumlah rincian ('+idr(p.gross)+'). Kosongkan total manual atau perbaiki rincian.';
-      rv={gross:p.gross,revenueMode:'breakdown',platformBreakdown:p.lines.map(l=>({platformId:l.platformId,name:l.name,gross:l.gross,feeRate:l.feeRate,fee:l.fee}))};}
-    else{if(!(v.gross>0))return 'Isi total pendapatan manual';rv={gross:v.gross,revenueMode:'legacy'};}
-    const base={date:v.date,start:v.start,end:v.end,odoStart:v.odoStart,odoEnd:v.odoEnd,nonFuel:v.nonFuel,orders:v.orders,note:v.note};
+    const keep=!!(e&&e.platformBreakdown&&e.platformBreakdown.length&&v.gross===e.gross),nid0=uid();let nid='';
+    const rv=keep?{gross:e.gross,revenueMode:e.revenueMode||'breakdown'}:{gross:v.gross,revenueMode:'legacy'};
+    const base={date:v.date,start:v.start,end:v.end,odoStart:v.odoStart,odoEnd:v.odoEnd,nonFuel:e?(e.nonFuel||0):0,orders:v.orders,note:v.note};
     if(db.shifts.some(s=>(!e||s.id!==e.id)&&s.date===v.date&&s.start===v.start&&s.end===v.end&&s.odoStart===v.odoStart&&s.odoEnd===v.odoEnd&&s.gross===rv.gross))return 'Shift yang sama sudah tersimpan';
     if(e){const n=db.orders.filter(o=>o.shiftId===e.id).length;if(n&&!confirm('Shift ini punya '+n+' order terkait. Rekonsiliasi dihitung ulang, nominal order tidak diubah. Lanjutkan?'))return null;}
-    if(commit(d=>{if(e){const s=d.shifts.find(y=>y.id===e.id);Object.assign(s,base,rv);if(rv.revenueMode==='legacy')delete s.platformBreakdown;s.editedAt=Date.now();}
-      else{nid=uid();d.shifts.push({id:nid,ts:Date.now(),...base,...rv});}d.vehicle.odometer=Math.max(d.vehicle.odometer,v.odoEnd);})){toast(e?'Shift diperbarui':'Shift disimpan');ed={k:'',id:''};if(nid){intelSel=nid;sub='intel';}renderAll();if(nid)window.scrollTo(0,0);}return null;},x);
-  const md=fr.querySelector('[id^="f_mode_"]'),gw=fr.querySelector('[id^="f_gross_"]').parentNode,sy=()=>{const b=md.value==='breakdown';x.node.style.display=b?'':'none';gw.querySelector('label').textContent=b?'Total manual (opsional, harus sama dengan rincian)':'Total pendapatan kotor manual (Rp)';};
-  md.addEventListener('change',sy);sy();
-  if(e){const cb=el('button','btn w-full','Batal edit');cb.type='button';cb.onclick=()=>{ed={k:'',id:''};renderAll();};fr.append(cb);}
-  return fr;}
+    if(commit(d=>{if(e){const s=d.shifts.find(y=>y.id===e.id);Object.assign(s,base,rv);if(!keep)delete s.platformBreakdown;s.editedAt=Date.now();}
+      else{nid=nid0;d.shifts.push({id:nid,ts:Date.now(),...base,...rv});}d.vehicle.odometer=Math.max(d.vehicle.odometer,v.odoEnd);})){toast(e?'Shift diperbarui':'Shift disimpan');ed={k:'',id:''};if(nid){intelSel=nid;sub='intel';}renderAll();if(nid)window.scrollTo(0,0);}return null;});
+}
 function paneShift(box){
   const e=ed.k==='shift'?db.shifts.find(s=>s.id===ed.id):null;
-  box.append(card(e?'Edit shift':'Tutup shift',[shiftForm(e),note('Rincian per platform memakai tarif platform saat ini sebagai snapshot dan tidak berubah jika tarif diubah nanti. Mode total manual menghasilkan potongan estimasi (legacy).')]));
+  {const fr=shiftForm(e);if(e){const cb=el('button','btn w-full','Batal edit');cb.type='button';cb.onclick=()=>{ed={k:'',id:''};renderAll();};fr.append(cb);}
+   box.append(card(e?'Edit shift':'Catat shift',[fr,note('Potongan aplikator dihitung otomatis dari rata-rata tarif aplikator aktif (menu Aplikator). BBM dihitung dari jarak odometer.')]));}
   {const td=today(),a=analyze(td,td);
    box.append(card('Ringkasan hari ini',a.n?[rw('Jumlah shift',nf.format(a.n)),rw('Pendapatan kotor',idr(a.gross)),rw('Potongan platform',idr(a.fee)),rw('Profit bersih (BBM estimasi)',idr(a.net),true,a.net>=0?'var(--ok-text)':'var(--bad-text)'),rw('Jarak',nf1.format(a.km)+' km'),rw('Jam kerja',nf1.format(a.hours)+' jam')]:[empty('Belum ada shift hari ini. Isi formulir untuk mulai mencatat.')]));}
   const l=card('Shift terakhir',[]);
@@ -1443,7 +1433,7 @@ function orderEditCard(o){
       {k:'shiftId',l:'Shift terkait (opsional)',t:'select',o:[['','(belum terhubung)'],...sl.map(s=>[s.id,s.date+' '+s.start+'-'+s.end])],v:o.shiftId||''}],'Simpan perubahan order',v=>{
       if(!(v.fare>0))return 'Tarif kotor harus lebih dari 0';if(v.fee>=100)return 'Potongan harus di bawah 100%';
       const dO=o.pickup+o.dest,dN=v.pickup+v.dest,st=db.settings;let op=o.opCost;
-      if(dN!==dO)op=dO>0?Math.round(o.opCost/dO*dN):Math.round(dN/(st.kmpl||1)*st.fuel+dN*st.dep);
+      if(dN!==dO)op=dO>0?Math.round(o.opCost/dO*dN):Math.round(dN/(st.kmpl||1)*st.fuel);
       const fa=Math.round(v.fare*v.fee/100),nt=v.fare-fa;
       if(commit(d=>{Object.assign(d.orders.find(y=>y.id===o.id),{platformId:v.platformId,status:v.status,fare:v.fare,grossFare:v.fare,pickup:v.pickup,dest:v.dest,dur:v.dur,opCost:op,feeRateSnapshot:v.fee,platformFeeAmount:fa,netFare:nt,profit:nt-op,feeCalculationVersion:2,feeSource:'edited',shiftId:v.shiftId,editedAt:Date.now()});})){toast('Order diperbarui');ed={k:'',id:''};renderAll();}return null;})]);
   const cb=bt('Batal edit',()=>{ed={k:'',id:''};renderAll();});cd.append(cb);return cd;}
@@ -1473,7 +1463,9 @@ function paneOrd(box){
     if(o.status==='Diterima')btns.push(['Selesai',()=>{if(commit(d=>{d.orders.find(x=>x.id===o.id).status='Diselesaikan';})){toast('Ditandai selesai');renderAll();}}]);
     if(o.status==='Diterima')['Dilewati','Dibatalkan'].forEach(st2=>btns.push([st2==='Dilewati'?'Lewati':'Batal',()=>{if(commit(d=>{d.orders.find(x=>x.id===o.id).status=st2;})){toast('Status: '+st2);renderAll();}}]));
     btns.push(['Edit',()=>setEd('order',o.id)]);btns.push(['Hapus',()=>del('orders',o.id)]);
-    const it=item(o.date+' '+o.time+', '+pn(o.platformId),'Tarif '+idr(o.fare)+', potongan '+(oc.rate===null?'-':nf1.format(oc.rate)+'%')+(oc.status==='actual'?' (snapshot)':' (turunan, legacy)')+', profit '+(actual?'':'est. ')+idr(o.profit)+(actual?'':' (tidak dihitung)')+', '+((db.shifts.find(s=>s.id===o.shiftId)||{}).date?'shift '+db.shifts.find(s=>s.id===o.shiftId).date:'belum terhubung ke shift'),btns);
+    const shO=db.shifts.find(s=>s.id===o.shiftId),it=item('Order '+o.date+' '+o.time,'',btns),ofd=el('div','ord-f');
+    [['Aplikator',pn(o.platformId)],['Tarif kotor',idr(o.fare)],['Potongan',oc.rate===null?'-':nf1.format(oc.rate)+'%'],[actual?'Profit':'Profit (estimasi)',idr(o.profit)],['Shift',shO?shO.date:'Belum terhubung']].forEach(([a,b2])=>{const x=el('div');x.append(el('small',null,a),el('b','num',b2));ofd.append(x);});
+    it.firstChild.replaceChild(ofd,it.firstChild.lastChild);
     it.firstChild.firstChild.append(el('span','badge '+({Diselesaikan:'ok',Diterima:'info',Dibatalkan:'bad'}[o.status]||''),o.status));
     it.dataset.t=(o.date+' '+o.time+' '+pn(o.platformId)+' '+o.status).toLowerCase();it.dataset.p=o.platformId;it.dataset.s=o.status;it.dataset.d=o.date;l.append(it);});
   l.append(nm);
@@ -1502,11 +1494,7 @@ function paneExp(box){
 }
 
 /* ---- Pane: Kendaraan, platform, servis ---- */
-function paneVeh(box){
-  box.append(card('Kendaraan',[form([{k:'odometer',l:'Odometer sekarang (km)',t:'int',v:db.vehicle.odometer},{k:'oilInterval',l:'Interval ganti oli (km)',t:'int',v:db.vehicle.oilInterval},{k:'dailyTarget',l:'Target profit harian (Rp)',t:'int',v:db.vehicle.dailyTarget}],'Simpan kendaraan',v=>{
-    if(v.oilInterval<=0)return 'Interval oli harus lebih dari 0';
-    if(commit(d=>Object.assign(d.vehicle,v))){toast('Kendaraan disimpan');renderAll();}return null;}),
-    note('BBM km/L, harga BBM, penyusutan, dan batas profit diatur di menu Kalkulator dan Pengaturan.')]));
+function paneApp(box){
   const pl=card('Aplikator',[]);
   db.platforms.forEach(p=>pl.append(item(p.name,'Potongan '+p.fee+'%, '+(p.active?'aktif':'nonaktif'),[[p.active?'Nonaktifkan':'Aktifkan',()=>{
     if(p.active&&db.platforms.filter(x=>x.active).length<2){toast('Minimal satu aplikator aktif');return;}
@@ -1516,6 +1504,13 @@ function paneVeh(box){
     if(db.platforms.some(p=>p.name.toLowerCase()===v.name.toLowerCase()))return 'Nama aplikator sudah ada';
     if(commit(d=>{d.platforms.push({id:uid(),name:v.name,fee:v.fee,active:true});})){toast('Aplikator ditambahkan');renderAll();}return null;}));
   box.append(pl);
+  box.append(note('Potongan dipakai untuk menghitung profit shift dan order. Ubah persen sesuai aplikasi Anda.'));
+}
+function paneVeh(box){
+  box.append(card('Kendaraan',[form([{k:'odometer',l:'Odometer sekarang (km)',t:'int',v:db.vehicle.odometer},{k:'oilInterval',l:'Interval ganti oli (km)',t:'int',v:db.vehicle.oilInterval},{k:'dailyTarget',l:'Target profit harian (Rp)',t:'int',v:db.vehicle.dailyTarget}],'Simpan kendaraan',v=>{
+    if(v.oilInterval<=0)return 'Interval oli harus lebih dari 0';
+    if(commit(d=>Object.assign(d.vehicle,v))){toast('Kendaraan disimpan');renderAll();}return null;}),
+    note('Konsumsi dan harga BBM diatur di menu Kalkulator. Potongan aplikator ada di menu Aplikator.')]));
   const odo=db.vehicle.odometer,mc=card('Perawatan',[]);
   ITEMS.forEach(i=>{const recs=db.maintenance.filter(m=>m.item===i).sort((a,b)=>b.odo-a.odo),iv=intervalOf(i);
     if(!recs.length){mc.append(rw(i,'Belum ada catatan'));return;}
@@ -1633,24 +1628,24 @@ async function resolveConflict(k,choice){
     await IDBX.tx(['outbox','conflicts'],'readwrite',(o,c)=>{o.put({key:k.key,coll:k.coll,id:k.id,op:has?'put':'del',ts:Date.now()});c.delete(k.key);});}
   toast('Konflik diselesaikan');await refreshSy();renderAll();syncNow();}
 function syCard(box){
-  const c=card('Penyimpanan dan sinkronisasi',[rw('IndexedDB (cermin)',SY.idb),rw('Migrasi ke IndexedDB',SY.mig+(SY.migMsg?' ('+SY.migMsg+')':'')),rw('Record LocalStorage / IndexedDB',SY.cnt),
-    rw('Antrean perubahan',nf.format(SY.queue),true,SY.queue?'var(--warn-text)':null),rw('Cloud',SY.cloud),rw('Sinkron terakhir',SY.last||'Belum pernah'),rw('Konflik belum diputuskan',nf.format(SY.conf.length),true,SY.conf.length?'var(--bad-text)':null)]);
-  const sb=el('div','space-y-2');sb.append(bt('Sinkronkan sekarang',()=>syncNow()),bt('Ulangi migrasi IndexedDB',()=>migrateIdb(true)));
-  if(window.OJOL_CLOUD){const A=window.OJOL_CLOUD;sb.append(A.user()?bt('Keluar dari cloud',async()=>{await A.logout();syncNow();}):bt('Masuk ke cloud',async()=>{try{await A.login();syncNow();}catch(e){toast('Login gagal: '+e.message);}}));}
-  c.append(sb);
-  SY.conf.forEach(k=>{const lr=k.local,rr=k.remote&&k.remote.rec,f=r=>r?(r.date||'')+' '+(r.gross||r.fare||r.amount||r.name||''):'(dihapus)';
-    c.append(item('Konflik '+k.coll,'Lokal: '+f(lr)+' | Cloud: '+f(rr),[['Pakai lokal',()=>resolveConflict(k,'local')],['Pakai cloud',()=>resolveConflict(k,'remote')]]));});
-  c.append(note('LocalStorage tetap penyimpanan utama; IndexedDB adalah cermin terverifikasi (peralihan penuh ke IndexedDB belum dilakukan). Data di browser dan file backup JSON TIDAK dienkripsi. Konflik transaksi tidak pernah ditimpa otomatis.'));box.append(c);}
+  const c=card('Penyimpanan',[rw('Penyimpanan utama','LocalStorage (di perangkat ini)'),rw('Cermin IndexedDB',SY.idb),rw('Status cermin',SY.mig+(SY.migMsg?' ('+SY.migMsg+')':'')),rw('Jumlah data (utama / cermin)',SY.cnt)]);
+  c.append(bt('Sinkronkan ulang cermin',async()=>{toast('Memeriksa cermin IndexedDB...');await migrateIdb(true);toast(SY.mig==='terverifikasi'?'Cermin cocok: '+SY.migMsg:'Gagal: '+SY.migMsg);renderAll();},'mt-2'));
+  if(window.OJOL_CLOUD){const A=window.OJOL_CLOUD,sb=el('div','space-y-2 mt-2');c.append(rw('Cloud',SY.cloud),rw('Antrean perubahan',nf.format(SY.queue)));
+    sb.append(bt('Sinkronkan ke cloud',async()=>{await syncNow();toast(SY.cloud);renderAll();}),A.user()?bt('Keluar dari cloud',async()=>{await A.logout();syncNow();}):bt('Masuk ke cloud',async()=>{try{await A.login();syncNow();}catch(e){toast('Login gagal: '+e.message);}}));c.append(sb);
+    SY.conf.forEach(k=>{const lr=k.local,rr=k.remote&&k.remote.rec,f=r=>r?(r.date||'')+' '+(r.gross||r.fare||r.amount||r.name||''):'(dihapus)';
+      c.append(item('Konflik '+k.coll,'Lokal: '+f(lr)+' | Cloud: '+f(rr),[['Pakai lokal',()=>resolveConflict(k,'local')],['Pakai cloud',()=>resolveConflict(k,'remote')]]));});}
+  else c.append(note('Sinkronisasi antar perangkat belum tersedia karena aplikasi belum terhubung ke server. Data hanya tersimpan di perangkat ini, jadi buat backup secara berkala untuk memindahkannya. Data di browser dan file backup tidak dienkripsi.'));
+  box.append(c);}
 
 /* ---- Controller ---- */
 const OJ2P={},OJ2H={};
-const HEAD={rep:['Laporan','Pendapatan, biaya, dan profit bersih dari shift dan order Anda.'],shift:['Shift','Catat jam kerja, odometer, dan pendapatan setiap shift.'],vehi:['Biaya kendaraan','BBM, konsumsi, servis, suku cadang, dan pengingat perawatan.'],goal:['Target','Target harian, mingguan, bulanan dan perencana hari ini.'],fcst:['Prakiraan','Prakiraan sederhana dan analitik performa dari riwayat Anda.'],intel:['Evaluasi','Profit per order, evaluasi shift, dan perbandingan jam kerja.'],ord:['Riwayat order','Telusuri order yang sudah dicatat dan lihat performanya.'],exp:['Biaya','Catat pengeluaran dan pantau biaya per kategori.'],veh:['Kendaraan','Odometer, aplikator, dan jadwal perawatan kendaraan.'],data:['Data dan backup','Ekspor, cadangkan, dan pulihkan data aplikasi.'],set:['Pengaturan','Tampilan, batas keputusan order, suara, dan pengaturan data.']};
+const HEAD={plat:['Aplikator','Daftar aplikator dan potongan komisinya.'],rep:['Laporan','Pendapatan, biaya, dan profit bersih dari shift dan order Anda.'],shift:['Shift','Catat jam kerja, odometer, dan pendapatan setiap shift.'],vehi:['Biaya kendaraan','BBM, konsumsi, servis, suku cadang, dan pengingat perawatan.'],goal:['Target','Target harian, mingguan, bulanan dan perencana hari ini.'],fcst:['Prakiraan','Prakiraan sederhana dan analitik performa dari riwayat Anda.'],intel:['Evaluasi','Profit per order, evaluasi shift, dan perbandingan jam kerja.'],ord:['Riwayat order','Telusuri order yang sudah dicatat dan lihat performanya.'],exp:['Biaya','Catat pengeluaran dan pantau biaya per kategori.'],veh:['Kendaraan','Odometer, aplikator, dan jadwal perawatan kendaraan.'],data:['Data dan backup','Ekspor, cadangkan, dan pulihkan data aplikasi.'],set:['Pengaturan','Tampilan, batas keputusan order, suara, dan pengaturan data.']};
 function setHead(){const h=HEAD[sub]||OJ2H[sub]||HEAD.rep;$('pgTitle').textContent=h[0];$('pgSub').textContent=h[1];if(window.OJ_sync)window.OJ_sync();}
 function renderAll(){
   const root=$('p2');root.replaceChildren();
   root.dataset.page=sub;
   const box=el('div','space-y-4');root.append(box);
-  ({rep:paneRep,vehi:paneVehi,goal:paneGoal,fcst:paneFc,intel:paneIntel,shift:paneShift,ord:paneOrd,exp:paneExp,veh:paneVeh,data:paneData}[sub]||OJ2P[sub]||(()=>{}))(box);
+  ({rep:paneRep,vehi:paneVehi,goal:paneGoal,fcst:paneFc,intel:paneIntel,shift:paneShift,ord:paneOrd,exp:paneExp,veh:paneVeh,plat:paneApp,data:paneData}[sub]||OJ2P[sub]||(()=>{}))(box);
   $('p1set').classList.toggle('hidden',sub!=='set');
   setHead();
   const ps=$('soPlat');ps.replaceChildren();
@@ -1850,12 +1845,13 @@ const gcur=(f,t)=>{const a=analyze(f,t);return{gross:a.gross,net:a.net,orders:a.
 function suggest(){const t=today(),f=addD(t,-59),ds=shD(f,t);if(ds.length<10)return{ok:false,n:ds.length};
   const rows=ds.map(d=>gcur(d,d)),wpw=ds.length/(spanD(f,t)/7),S={};
   GM.forEach(([k])=>{const v=rows.map(r=>r[k]);S[k]={real:qn(v,.5),chal:qn(v,.75)};});return{ok:true,n:ds.length,f,t,wpw,S,rows,ds};}
+window.OJOL_limits=()=>{const g=goals().daily;return{minProfit:g.net>0&&g.orders>0?Math.round(g.net/g.orders):0,minPPK:g.net>0&&g.km>0?Math.round(g.net/g.km):0,minPPH:g.net>0&&g.hours>0?Math.round(g.net/g.hours):0};};
 function paneGoal(box){
   const t=today(),G=goals(),per={daily:[t,t],weekly:[wkS(t),addD(wkS(t),6)],monthly:[mS(t),mE(t)]};
   const w30=gcur(addD(t,-29),t),ds30=shD(addD(t,-29),t),ratesOk=ds30.length>=5&&w30.hours>=10,w28=gcur(addD(t,-27),t),calOk=shD(addD(t,-27),t).length>=7;
-  const any=GP.some(([p])=>GM.some(([k])=>G[p][k]>0));
+  const sel=db.settings.goalPeriod||'daily';box.append(chips(GP,sel,v=>{if(commit(d=>{d.settings.goalPeriod=v;}))renderAll();}));const any=GM.some(([k])=>G[sel][k]>0);
   if(!any)box.append(card('Target',[empty('Belum ada target. Atur target di bawah atau pakai saran dari data Anda.')]));
-  GP.forEach(([p,pl])=>{const [s,e]=per[p],cur=gcur(s,t);if(!GM.some(([k])=>G[p][k]>0))return;
+  GP.forEach(([p,pl])=>{if(p!==sel)return;const [s,e]=per[p],cur=gcur(s,t);if(!GM.some(([k])=>G[p][k]>0))return;
     const c=card('Target '+pl.toLowerCase()+' ('+(p==='daily'?dshort(t):dshort(s)+' - '+dshort(e))+')',[]);
     GM.forEach(([k,l,f])=>{const tg=G[p][k];if(!(tg>0))return;const v=cur[k],pct=Math.min(100,v/tg*100),sf=Math.max(0,tg-v),d=el('div','xd-cmp');
       const r=el('div','row'),ver=el('span','font-semibold',l);r.append(ver,el('span','num',f(v)+' / '+f(tg)));d.append(r);
@@ -1887,12 +1883,12 @@ function paneGoal(box){
     sc.append(note('Saran memakai median (bukan rata-rata) agar hari luar biasa tidak menggelembungkan target, dan hanya patokan dari riwayat Anda sendiri. Target menantang sekitar 1 dari 4 hari kerja Anda pernah tercapai. Anda bebas mengubah angkanya.'));}
   box.append(sc);
   /* form manual */
-  const fields=[];GP.forEach(([p,pl])=>GM.forEach(([k,l],i)=>fields.push({k:p+'_'+k,l:pl+': '+l+(k==='hours'||k==='km'?'':' (Rp)').replace(/^ \(Rp\)$/,k==='orders'?'':' (Rp)'),t:k==='hours'||k==='km'?'dec':'int',req:false,v:G[p][k]||'',...(i===0?{g:'Target '+pl.toLowerCase()}:{}),c:'c2'})));
-  box.append(card('Atur target manual',[form(fields,'Simpan target',v=>{const g={};
-      for(const [p] of GP){g[p]={};for(const [k] of GM){const n=v[p+'_'+k];if(n>1e8)return 'Target terlalu besar';g[p][k]=n;}}
+  const fields=[];GP.filter(x=>x[0]===sel).forEach(([p,pl])=>GM.forEach(([k,l],i)=>fields.push({k:p+'_'+k,l:pl+': '+l+(k==='hours'||k==='km'?'':' (Rp)').replace(/^ \(Rp\)$/,k==='orders'?'':' (Rp)'),t:k==='hours'||k==='km'?'dec':'int',req:false,v:G[p][k]||'',...(i===0?{g:'Target '+pl.toLowerCase()}:{}),c:'c2'})));
+  box.append(card('Atur target manual',[form(fields,'Simpan target',v=>{const g=JSON.parse(JSON.stringify(G));
+      for(const [k] of GM){const n=v[sel+'_'+k];if(n>1e8)return 'Target terlalu besar';g[sel][k]=n;}
       if(g.weekly.net&&g.daily.net&&g.weekly.net<g.daily.net)return 'Target profit mingguan lebih kecil dari harian';if(g.monthly.net&&g.weekly.net&&g.monthly.net<g.weekly.net)return 'Target profit bulanan lebih kecil dari mingguan';
       if(g.daily.hours>24)return 'Target jam kerja harian maksimal 24 jam';
-      if(commit(d=>{d.settings.goals=g;d.vehicle.dailyTarget=g.daily.net;})){toast('Target disimpan');renderAll();}return null;}),note('Isi 0 atau kosongkan untuk tidak memakai target. Target profit harian sama dengan target di Kendaraan dan Beranda.')]));
+      if(commit(d=>{d.settings.goals=g;d.vehicle.dailyTarget=g.daily.net;})){toast('Target disimpan');renderAll();}return null;}),note('Isi 0 atau kosongkan untuk tidak memakai target. Target profit harian dipakai di Beranda. Target harian juga menjadi patokan kalkulator: profit per order, per km, dan per jam yang dianggap layak (profit ÷ order, km, atau jam kerja).')]));
 }
 
 /* ---- FASE 7: Prakiraan dan analitik performa ---- */
@@ -2101,11 +2097,11 @@ function actCard(){
   L.sort((p,q)=>p.key<q.key?1:p.key>q.key?-1:0);
   const dl=s=>s===t?'Hari ini':s===yd?'Kemarin':new Date(s+'T00:00:00Z').toLocaleDateString('id-ID',{day:'numeric',month:'short',timeZone:'UTC'});
   if(!L.length){const w=el('div','act-empty'),i=el('div','ill');i.innerHTML='<svg class="i"><use href="#i-clock"/></svg>';
-    const ac=el('div','acts'),b1=el('button','btn solid','Catat shift'),b2=el('button','btn','Hitung order');b1.type=b2.type='button';b1.onclick=()=>go('shift');b2.onclick=()=>window.OJ_goTab('calc');ac.append(b1,b2);
-    w.append(i,el('b',null,'Belum ada aktivitas hari ini'),el('p',null,'Mulai catat Shift atau Order pertama Anda. Riwayat terbaru akan muncul di sini.'),ac);c.append(w);}
+    
+    w.append(i,el('b',null,'Belum ada aktivitas hari ini'),el('p',null,'Gunakan Aksi cepat untuk mencatat Shift atau Order pertama Anda. Riwayat terbaru muncul di sini.'));c.append(w);}
   else{if(!L.some(x=>x.date===t))c.append(el('div','act-hint','Belum ada aktivitas hari ini. Berikut catatan terakhir Anda.'));
-    const ul=el('div','act-list');L.slice(0,6).forEach(x=>{const r=el('button','act-row'),ic=el('span','act-ic'),tx=el('span','act-tx'),am=el('span','act-amt',x.amt);r.type='button';ic.dataset.k=x.k;ic.setAttribute('aria-hidden','true');ic.innerHTML='<svg class="i"><use href="#'+x.ic+'"/></svg>';
-      tx.append(el('b',null,x.ti+' | '+x.pl),el('small',null,dl(x.date)+(x.tm?', '+x.tm:'')));am.style.color=x.col;r.setAttribute('aria-label',x.ti+', '+x.pl+', '+dl(x.date)+', '+x.amt);r.append(ic,tx,am);r.onclick=()=>go(x.to);ul.append(r);});c.append(ul);
+    const ul=el('div','act-list');L.slice(0,6).forEach(x=>{const r=el('div','act-row'),ic=el('span','act-ic'),tx=el('span','act-tx'),am=el('span','act-amt',x.amt);ic.dataset.k=x.k;ic.setAttribute('aria-hidden','true');ic.innerHTML='<svg class="i"><use href="#'+x.ic+'"/></svg>';
+      tx.append(el('b',null,x.ti+' | '+x.pl),el('small',null,dl(x.date)+(x.tm?', '+x.tm:'')));am.style.color=x.col;r.append(ic,tx,am);ul.append(r);});c.append(ul);
     c.append(note('Angka hijau adalah profit bersih, merah adalah biaya. Shift dan order selesai memakai estimasi biaya operasional.'));}
   const lb=d.statistics.lastBackupAt,days=lb?Math.floor((Date.now()-new Date(lb).getTime())/864e5):null,f=fat();
   c.append(rw('Backup terakhir',lb?(days<=0?'Hari ini':days+' hari lalu'):'Belum pernah',false,lb&&days<=14?null:'var(--warn-text)'),
@@ -2150,7 +2146,7 @@ let hs='spot';
 const parseDays=s=>{s=(s||'').trim();if(!s)return[];const o=[];for(const t of s.toLowerCase().split(/[\s,]+/).filter(Boolean)){const i=DK.indexOf(t.slice(0,3));if(i<0)return null;if(!o.includes(i))o.push(i);}return o;};
 function paneSpot(b){
   b.append(card('Tambah hotspot',[form([{k:'name',l:'Nama lokasi',t:'text'},{k:'address',l:'Alamat',t:'text',req:false},{k:'lat',l:'Latitude (opsional)',t:'text',req:false},{k:'lng',l:'Longitude (opsional)',t:'text',req:false},
-    {k:'cat',l:'Kategori',t:'select',o:['Kampus','Mall','Stasiun/terminal','Kuliner','Perkantoran','Lainnya'].map(x=>[x,x])},{k:'days',l:'Hari produktif (contoh Sen,Sel,Jum; kosong = tidak ditentukan)',t:'text',req:false},
+    {k:'cat',l:'Kategori',t:'select',o:['Kampus','Mall','Stasiun/terminal','Kuliner','Perkantoran','Lainnya'].map(x=>[x,x])},{k:'days',l:'Hari produktif (ketuk untuk memilih; kosong = tidak ditentukan)',t:'days',req:false},
     {k:'hs',l:'Jam produktif mulai',t:'time',req:false},{k:'he',l:'Jam produktif selesai',t:'time',req:false},{k:'safety',l:'Keamanan lokasi',t:'select',o:[['1','1 (kurang aman)'],['2','2'],['3','3 (cukup)'],['4','4'],['5','5 (sangat aman)']],v:'3'},{k:'note',l:'Catatan',t:'text',req:false}],'Simpan hotspot',v=>{
     if(!v.name)return 'Nama wajib diisi';const lat=num(v.lat),lng=num(v.lng);
     if((lat===null)!==(lng===null))return 'Isi latitude dan longitude sekaligus';
@@ -2247,7 +2243,7 @@ function curPage(){const sc=document.querySelector('section[data-tab]:not(.hidde
 function sync(){const p=curPage();
   document.querySelectorAll('.sidebar [data-nav],.sidebar [data-sub],.nav [data-nav],.nav [data-sub]').forEach(x=>{if((x.dataset.nav||x.dataset.sub)===p)x.setAttribute('aria-current','page');else x.removeAttribute('aria-current');});
   const mo=$('navMore');if(mo){if(['home','calc','zones','rep'].includes(p))mo.removeAttribute('aria-current');else mo.setAttribute('aria-current','page');}
-  const h=document.querySelector('section[data-tab]:not(.hidden) .page-title');if(h)document.title=h.textContent+' | Ojol Ops';
+  const h=document.querySelector('section[data-tab]:not(.hidden) .page-title');if(h)document.title=h.textContent+' | OneSight';
   const cur=document.querySelector('.sidebar [aria-current=page]'),hp=$('hdPage');if(hp)hp.textContent=cur?cur.textContent.trim():(h?h.textContent:'Beranda');}
 window.OJ_sync=sync;
 function hdInfo(){try{const z=OJ2.tz(),n=new Date(),L=new Intl.DateTimeFormat('id-ID',{timeZone:z,weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(n),S=new Intl.DateTimeFormat('id-ID',{timeZone:z,weekday:'short',day:'numeric',month:'short'}).format(n),e=$('hdDate');
@@ -2387,7 +2383,7 @@ function kpis(t){
     if(k==='target'&&tg>0){const m=el('div','xd-meter'),f=el('div');f.style.width=pct+'%';m.append(f);m.setAttribute('role','progressbar');m.setAttribute('aria-valuenow',String(Math.round(pct)));m.setAttribute('aria-valuemin','0');m.setAttribute('aria-valuemax','100');d.append(m);}
     g.append(d);});
   if(g.children.length)box.append(g);
-  if(!a.n&&!a.cost){const n=el('div','text-sm text-mute mt-3','Mulai dari sini: ');const bt=el('button','btn mt-2','Catat shift');bt.type='button';bt.onclick=()=>{X.setSub('shift');window.OJ_goTab('settings');};box.append(n,bt);}
+  
   const dt=el('details','card mt-3'),sm=el('summary','font-semibold','Atur KPI yang ditampilkan (profit dan target selalu tampil di kartu utama)');dt.append(sm);
   KP.filter(k=>k[0]!=='net'&&k[0]!=='target').forEach(([k,l])=>{const lb=el('label','xd-opt'),cb=el('input');cb.type='checkbox';cb.checked=st.kpi.includes(k);
     cb.onchange=()=>{const nx=KP.map(x=>x[0]).filter(x=>x===k?cb.checked:st.kpi.includes(x));if(!nx.filter(x=>x!=='net'&&x!=='target').length){cb.checked=true;X.toast('Minimal satu KPI harus ditampilkan');return;}st.kpi=nx;save();kpis(t);const d2=box.querySelector('details');if(d2)d2.open=true;};
@@ -2483,7 +2479,7 @@ paint();
 (()=>{'use strict';
 const X=window.OJ2;if(!X)return;
 const {el,card,rw,note,empty,chips,bt,form,idr,nf,nf1,toast}=X,$=id=>document.getElementById(id);
-const APPV='6.1.0',f1=v=>nf1.format(v),db=()=>X.db(),T=()=>X.today(),r1=v=>Math.round(v*10)/10;
+const APPV='1.0.0',f1=v=>nf1.format(v),db=()=>X.db(),T=()=>X.today(),r1=v=>Math.round(v*10)/10;
 const dMs=s=>Date.parse(s+'T00:00:00Z'),add=(s,n)=>new Date(dMs(s)+n*864e5).toISOString().slice(0,10);
 const pc=(a,b)=>b?(a-b)/Math.abs(b)*100:null,dim=s=>new Date(Date.UTC(+s.slice(0,4),+s.slice(5,7),0)).getUTCDate();
 const mon=s=>add(s,-((new Date(dMs(s)).getUTCDay()+6)%7)),nav=s=>{X.setSub(s);window.OJ_goTab('settings');};
@@ -2614,11 +2610,11 @@ function build(){
     R.chart={kind:'h',items:R.rows.map(r=>[r[0],r[1]]),title:'Biaya per kategori'};R.notes.push('BBM adalah estimasi dari jarak dan konsumsi di Pengaturan.');R.costTot=tot;}
   else if(ty==='veh'){const km=S.km,mt=d.maintenance.filter(m=>m.date>=f&&m.date<=to);
     R.cols=[{h:'Tanggal',t:'s'},{h:'Komponen',t:'s'},{h:'Odometer',t:'n'},{h:'Biaya',t:'rp'}];R.rows=mt.sort((a,b)=>a.date<b.date?-1:1).map(m=>[m.date,m.item,m.odo,m.cost]);
-    const bk=km>0?(S.fuel+S.maint)/km:null;R.info=[['Odometer saat ini',nf.format(d.vehicle.odometer)+' km'],['Jarak periode',f1(km)+' km'],['BBM estimasi',idr(S.fuel)],['Biaya servis',idr(S.maint)],['Biaya BBM + servis per km',bk===null?'-':idr(bk)],['Penyusutan estimasi',idr(S.dep)]];R.infoT='Ringkasan kendaraan';
-    R.chart={kind:'h',items:[['BBM',Math.round(S.fuel)],['Servis',S.maint],['Penyusutan',Math.round(S.dep)]],title:'Komponen biaya kendaraan'};R.extraRem=X.reminders().out;}
-  else if(ty==='prof'){const g=S.gross||0,p=v=>g>0?r1(v/g*100):null,after=S.net-S.dep;
+    const bk=km>0?(S.fuel+S.maint)/km:null;R.info=[['Odometer saat ini',nf.format(d.vehicle.odometer)+' km'],['Jarak periode',f1(km)+' km'],['BBM estimasi',idr(S.fuel)],['Biaya servis',idr(S.maint)],['Biaya BBM + servis per km',bk===null?'-':idr(bk)]];R.infoT='Ringkasan kendaraan';
+    R.chart={kind:'h',items:[['BBM',Math.round(S.fuel)],['Servis',S.maint]],title:'Komponen biaya kendaraan'};R.extraRem=X.reminders().out;}
+  else if(ty==='prof'){const g=S.gross||0,p=v=>g>0?r1(v/g*100):null;
     R.cols=[{h:'Komponen',t:'s'},{h:'Jumlah',t:'rp'},{h:'% dari kotor',t:'n'}];
-    R.rows=[['Pendapatan kotor',Math.round(g),100],['Potongan platform',-Math.round(S.fee),p(-S.fee)],['BBM (estimasi)',-Math.round(S.fuel),p(-S.fuel)],['Servis',-Math.round(S.maint),p(-S.maint)],['Biaya lain',-Math.round(S.other),p(-S.other)],['Profit bersih',Math.round(S.net),p(S.net)],['Penyusutan (estimasi)',-Math.round(S.dep),p(-S.dep)],['Profit setelah penyusutan',Math.round(after),p(after)]];
+    R.rows=[['Pendapatan kotor',Math.round(g),100],['Potongan platform',-Math.round(S.fee),p(-S.fee)],['BBM (estimasi)',-Math.round(S.fuel),p(-S.fuel)],['Servis',-Math.round(S.maint),p(-S.maint)],['Biaya lain',-Math.round(S.other),p(-S.other)],['Profit bersih',Math.round(S.net),p(S.net)]];
     R.info=[['Margin profit',g>0?f1(S.net/g*100)+'%':'-'],['Profit per jam',S.hours>0?idr(S.net/S.hours):'-'],['Profit per km',S.km>0?idr(S.net/S.km):'-'],['Profit per order',S.orders>0?idr(S.net/S.orders):'-'],['Profit per shift',S.n>0?idr(S.net/S.n):'-']];R.infoT='Rasio profitabilitas';
     R.chart={kind:'h',items:R.rows.filter((r,i)=>i>0&&i<6).map(r=>[r[0],r[1]]),title:'Dari pendapatan kotor ke profit'};}
   else if(ty==='goal'){const G=d.settings.goals||{},gd=(G.daily&&G.daily.net)||d.vehicle.dailyTarget||0,gw=G.weekly&&G.weekly.net,gm=G.monthly&&G.monthly.net;
@@ -2664,7 +2660,7 @@ function paneRpt(box){
   if(!['cost','veh','goal'].includes(rs.type)){fc.append(el('div','mt-2'),chips([['','Semua platform'],...d.platforms.map(p=>[p.id,p.name])],rs.plat,v=>{rs.plat=v;X.render();}));}
   box.append(fc);let R;try{R=build();}catch(e){box.append(card('Laporan gagal dibuat',[empty(e.message)]));return;}
   if(rs.type==='cost'&&R.cats)fc.append(el('div','mt-2'),chips([['','Semua kategori'],...R.cats.map(c=>[c,c])],rs.cat,v=>{rs.cat=v;X.render();}));
-  const ph=el('div','print-only');ph.append(el('h2',null,'Ojol Ops: Laporan '+t0),el('p',null,'Periode '+(R.f==='0000-00-00'?'semua data':R.f)+' s/d '+R.to+(rs.plat?' | Platform: '+X.pn(rs.plat):'')+' | Dibuat '+new Date().toLocaleString('id-ID',{timeZone:X.tz()})));box.append(ph);
+  const ph=el('div','print-only');ph.append(el('h2',null,'OneSight: Laporan '+t0),el('p',null,'Periode '+(R.f==='0000-00-00'?'semua data':R.f)+' s/d '+R.to+(rs.plat?' | Platform: '+X.pn(rs.plat):'')+' | Dibuat '+new Date().toLocaleString('id-ID',{timeZone:X.tz()})));box.append(ph);
   const S=R.S,sm=card('Ringkasan statistik',[]);
   if(!S.n&&!R.rows.length){box.append(sm);sm.append(empty('Tidak ada data pada filter ini. Ubah periode atau platform.'));return;}
   [['Shift',String(S.n)],['Pendapatan kotor',idr(S.gross)],['Potongan platform',idr(S.fee)]].forEach(([l,v])=>sm.append(rw(l,v)));
@@ -2693,13 +2689,13 @@ function due(){const a=AS(),d=db(),t=T(),now=X.fmtT(new Date()),out=[];
     if(un>0&&!d.shifts.some(s=>s.date===t))out.push({id:'close',t:un+' order selesai hari ini belum masuk shift',act:'Catat shift',go:()=>nav('shift')});}
   return out;}
 function notify(txt){try{if(!('Notification' in window)||Notification.permission!=='granted')return false;
-  if(navigator.serviceWorker&&navigator.serviceWorker.controller)navigator.serviceWorker.ready.then(r=>r.showNotification('Ojol Ops',{body:txt,tag:'ojol-rm',icon:'icon-192.png'}));else new Notification('Ojol Ops',{body:txt,tag:'ojol-rm'});return true;}catch(e){return false;}}
+  if(navigator.serviceWorker&&navigator.serviceWorker.controller)navigator.serviceWorker.ready.then(r=>r.showNotification('OneSight',{body:txt,tag:'ojol-rm',icon:'icon-192.png'}));else new Notification('OneSight',{body:txt,tag:'ojol-rm'});return true;}catch(e){return false;}}
 function tick(){try{if(!db()||safeOn())return;const a=AS(),t=T(),l=due();
   for(const r of l){let k='ojol_rm_'+r.id,seen='';try{seen=localStorage.getItem(k);}catch(e){}if(seen===t)continue;
     if(document.hidden){if(a.notif&&notify(r.t)){try{localStorage.setItem(k,t);}catch(e){}}return;}
     toast('Pengingat: '+r.t);try{localStorage.setItem(k,t);}catch(e){}return;}}catch(e){}}
 function sumTxt(){const t=T(),a=X.analyze(t,t),d=db(),od=d.orders.filter(o=>o.date===t&&o.status==='Diselesaikan').length;
-  return['Ringkasan Ojol Ops '+t,'Profit bersih: '+idr(a.net),'Pendapatan kotor: '+idr(a.gross),'Shift: '+a.n+', jam kerja: '+f1(a.hours)+', jarak: '+f1(a.km)+' km','Order selesai tercatat: '+od].join('\n');}
+  return['Ringkasan OneSight '+t,'Profit bersih: '+idr(a.net),'Pendapatan kotor: '+idr(a.gross),'Shift: '+a.n+', jam kerja: '+f1(a.hours)+', jarak: '+f1(a.km)+' km','Order selesai tercatat: '+od].join('\n');}
 function dailyCard(){const t=T(),a=X.analyze(t,t),d=db(),od=d.orders.filter(o=>o.date===t&&o.status==='Diselesaikan').length,g=(d.settings.goals&&d.settings.goals.daily&&d.settings.goals.daily.net)||d.vehicle.dailyTarget,c=card('Ringkasan aktivitas hari ini',[]);
   if(!a.n&&!od){c.append(empty('Belum ada shift atau order hari ini.'));return c;}
   c.append(rw('Profit bersih',idr(a.net),true,a.net<0?'var(--bad-text)':'var(--ok-text)'),rw('Pendapatan kotor',idr(a.gross)),rw('Shift / jam kerja',a.n+' / '+f1(a.hours)+' jam'),rw('Jarak',f1(a.km)+' km'),rw('Order selesai tercatat',String(od)));
